@@ -172,6 +172,28 @@ function pushValueToSecondNum() {
     }
 }
 
+function addEventListenerToKeys(){
+    window.addEventListener('keyup', event => {
+        if(event.key === "0"){document.getElementById("zero").click();}
+        if(event.key === "1"){document.getElementById("one").click();}
+        if(event.key === "2"){document.getElementById("two").click();}
+        if(event.key === "3"){document.getElementById("three").click();}
+        if(event.key === "4"){document.getElementById("four").click();}
+        if(event.key === "5"){document.getElementById("five").click();}
+        if(event.key === "6"){document.getElementById("six").click();}
+        if(event.key === "7"){document.getElementById("seven").click();}
+        if(event.key === "8"){document.getElementById("eight").click();}
+        if(event.key === "9"){document.getElementById("nine").click();}
+        if(event.key === "/"){document.getElementById('divide').click()}
+        if(event.key === "*"){document.getElementById("multiply").click();}
+        if(event.key === "-"){document.getElementById("subtract").click();}
+        if(event.key === "+"){document.getElementById("add").click();}
+        if(event.key === "."){document.getElementById("dot").click();}
+        if(event.key === "Enter"){document.getElementById("equal").click();}
+        if(event.key === "Backspace"){document.getElementById("DEL").click();}
+    })
+}
+
 function init() {
     addEventListenerToNum();
     addEventListenerToOperators();
@@ -179,6 +201,7 @@ function init() {
     addEventListenerToAC();
     addEventListenerToDot();
     addEventListenerToDEL();
+    addEventListenerToKeys();
 }
 
 init();

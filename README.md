@@ -52,6 +52,6 @@ divide
 
 # DONE. EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the wrong number.
 
-EXTRA CREDIT: Add keyboard support!
+# DONE. EXTRA CREDIT: Add keyboard support!
 
 ###########################
