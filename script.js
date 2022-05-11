@@ -5,31 +5,31 @@ let selectedOperator = "";
 let firstNum = null;
 let secondNum = null;
 
-function add(a, b){return (Number(a) + Number(b));}
+function add(a, b) { return (Number(a) + Number(b)); }
 
-function subtract(a, b){return (Number(a) - Number(b));}
+function subtract(a, b) { return (Number(a) - Number(b)); }
 
-function multiply(a, b){return (Number(a) * Number(b));}
+function multiply(a, b) { return (Number(a) * Number(b)); }
 
-function divide(a, b){return (Number(a) / Number(b));}
+function divide(a, b) { return (Number(a) / Number(b)); }
 
-function operate(operator, a, b){
-    if(operator === "+"){firstNum = add(a, b);}
-    if(operator === "-"){firstNum = subtract(a, b);}
-    if(operator === "×"){firstNum = multiply(a, b);}
-    if(operator === "÷"){firstNum = divide(a, b);}
+function operate(operator, a, b) {
+    if (operator === "+") { firstNum = add(a, b); }
+    if (operator === "-") { firstNum = subtract(a, b); }
+    if (operator === "×") { firstNum = multiply(a, b); }
+    if (operator === "÷") { firstNum = divide(a, b); }
     secondNum = null;
-    if(firstNum !== Infinity){
-        displayResult(Math.round(firstNum * 10000)/10000);
+    if (firstNum !== Infinity) {
+        displayResult(Math.round(firstNum * 10000) / 10000);
     } else {
         displayResult("To infinity and beyond!");
     }
     console.log(`RESULT = ${firstNum}`);
 }
 
-function displayExpr(string = ""){
+function displayExpr(string = "") {
     const display = document.querySelector('.expr-display');
-    if(string === ""){
+    if (string === "") {
         display.textContent = "";
     } else {
         display.textContent += string;
@@ -37,34 +37,34 @@ function displayExpr(string = ""){
     displayExprValue = display.textContent;
 }
 
-function deleteDisplayExpr(){
+function deleteDisplayExpr() {
     const display = document.querySelector('.expr-display');
     display.textContent = display.textContent.slice(0, -1);
 }
 
-function displayResult(string = ""){
+function displayResult(string = "") {
     const display = document.querySelector('.result-display');
-    if(string === ""){
+    if (string === "") {
         display.textContent = "";
     } else {
         display.textContent = string;
     }
 }
 
-function addEventListenerToEqual(){
+function addEventListenerToEqual() {
     const equalButton = document.querySelector(".equal");
     equalButton.addEventListener('click', () => {
-        if(valueString !== "" && firstNum !== null && secondNum === null){
+        if (valueString !== "" && firstNum !== null && secondNum === null) {
             pushValueToSecondNum();
             operate(selectedOperator, firstNum, secondNum);
             selectedOperator = "";
             displayExpr();
-    
+
         }
     });
 }
 
-function addEventListenerToAC(){
+function addEventListenerToAC() {
     const acButton = document.querySelector(".AC");
     acButton.addEventListener('click', () => {
         displayExpr();
@@ -76,27 +76,27 @@ function addEventListenerToAC(){
     });
 }
 
-function addEventListenerToDot(){
+function addEventListenerToDot() {
     const dotButton = document.querySelector(".dot");
     dotButton.addEventListener('click', () => {
-        if(!valueString.includes(".")){
+        if (!valueString.includes(".")) {
             displayExpr(".");
             addToValueString(".");
         }
     });
 }
 
-function addEventListenerToDEL(){
+function addEventListenerToDEL() {
     const delButton = document.querySelector(".DEL");
     delButton.addEventListener('click', () => {
-        if(valueString){
+        if (valueString) {
             valueString = valueString.slice(0, -1);
             deleteDisplayExpr();
         }
     });
 }
 
-function addEventListenerToNum(){
+function addEventListenerToNum() {
     const numButton = Array.from(document.querySelectorAll(".num"));
     numButton.forEach(btn => btn.addEventListener('click', event => {
         const string = event.target.textContent;
@@ -105,37 +105,37 @@ function addEventListenerToNum(){
     }));
 }
 
-function addEventListenerToOperators(){
+function addEventListenerToOperators() {
     const addButton = document.querySelector(".add");
-    addButton.addEventListener('click', event => {operatorButtonFunction(event)});
+    addButton.addEventListener('click', event => { operatorButtonFunction(event) });
 
     const subtractButton = document.querySelector(".subtract");
-    subtractButton.addEventListener('click', event => {operatorButtonFunction(event)});
+    subtractButton.addEventListener('click', event => { operatorButtonFunction(event) });
 
     const multiplyButton = document.querySelector(".multiply");
-    multiplyButton.addEventListener('click', event => {operatorButtonFunction(event)});
-    
+    multiplyButton.addEventListener('click', event => { operatorButtonFunction(event) });
+
     const divideButton = document.querySelector(".divide");
-    divideButton.addEventListener('click', event => {operatorButtonFunction(event)});
+    divideButton.addEventListener('click', event => { operatorButtonFunction(event) });
 }
 
-function operatorButtonFunction(event){
+function operatorButtonFunction(event) {
 
-    if(valueString == "" && firstNum !== null && secondNum === null){
+    if (valueString == "" && firstNum !== null && secondNum === null) {
         const string = event.target.textContent;
         selectedOperator = string;
         displayExpr();
         displayExpr(`Ans${string}`);
     }
 
-    if(valueString !== "" && firstNum === null){
+    if (valueString !== "" && firstNum === null) {
         pushValueToFirstNum();
         const string = event.target.textContent;
         selectedOperator = string;
         displayExpr(string);
     }
 
-    if(valueString !== "" && firstNum !== null && secondNum === null){
+    if (valueString !== "" && firstNum !== null && secondNum === null) {
         pushValueToSecondNum();
         const string = event.target.textContent;
         operate(selectedOperator, firstNum, secondNum);
@@ -143,36 +143,36 @@ function operatorButtonFunction(event){
         displayExpr();
         displayExpr(`Ans${string}`);
     }
-    
+
 }
 
-function addToValueString(string){
+function addToValueString(string) {
     valueString += string;
     console.log(`valueString = ${valueString}`);
 }
 
-function clearValueString(){
+function clearValueString() {
     valueString = "";
     console.log(`valueString = ${valueString}`);
 }
 
-function pushValueToFirstNum(){
-    if(valueString != ""){
+function pushValueToFirstNum() {
+    if (valueString != "") {
         firstNum = Number(valueString);
         clearValueString();
         console.log(`firstNumber = ${firstNum}`);
     }
 }
 
-function pushValueToSecondNum(){
-    if(valueString != ""){
+function pushValueToSecondNum() {
+    if (valueString != "") {
         secondNum = Number(valueString);
         clearValueString();
         console.log(`secondNumber = ${secondNum}`);
     }
 }
 
-function init(){
+function init() {
     addEventListenerToNum();
     addEventListenerToOperators();
     addEventListenerToEqual();
