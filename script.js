@@ -42,6 +42,19 @@ function displayResult(string = ""){
     }
 }
 
+function addEventListenerToEqual(){
+    const equalButton = document.querySelectorAll(".equal");
+    equalButton.addEventListener('click', event => {
+        if(valueString !== "" && firstNum !== null && secondNum === null){
+            pushValueToSecondNum();
+            operate(selectedOperator, firstNum, secondNum);
+            selectedOperator = "";
+            displayExpr();
+    
+        }
+    });
+}
+
 function addEventListenerToNum(){
     const numButton = Array.from(document.querySelectorAll(".num"));
     numButton.forEach(btn => btn.addEventListener('click', event => {
