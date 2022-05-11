@@ -1,7 +1,7 @@
 // Global variables
 let displayExprValue = "";
 let valueString = "";
-let firstNum = 1;
+let firstNum = null;
 let secondNum = null;
 
 function add(a, b){return Number(a) + Number(b);}
@@ -34,6 +34,7 @@ function addEventListenerToNum(){
     numButton.forEach(btn => btn.addEventListener('click', event => {
         const string = event.target.textContent;
         displayExpr(string);
+        addToValueString(string);
     }));
 }
 
@@ -52,18 +53,29 @@ function addEventListenerToOperators(){
 }
 
 function operatorButtonFunction(event){
+    pushValueToFirstNum();
     if(firstNum != null){
         const string = event.target.textContent;
         displayExpr(string);
+        clearValueString();
     }
 }
 
 function addToValueString(string){
     valueString += string;
+    console.log(`valueString = ${valueString}`);
 }
 
 function clearValueString(){
     valueString = "";
+    console.log(`valueString = ${valueString}`);
+}
+
+function pushValueToFirstNum(){
+    if(valueString != ""){
+        firstNum = Number(valueString);
+        console.log(`firstNumber = ${firstNum}`);
+    }
 }
 
 function init(){
