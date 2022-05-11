@@ -34,8 +34,32 @@ function addEventListenerToNum(){
     }));
 }
 
+function addEventListenerToOperators(){
+    const addButton = document.querySelector(".add");
+    addButton.addEventListener('click', event => {
+        const string = event.target.textContent;
+        displayExpr(string);
+    });
+    const subtractButton = document.querySelector(".subtract");
+    subtractButton.addEventListener('click', event => {
+        const string = event.target.textContent;
+        displayExpr(string);
+    });
+    const multiplyButton = document.querySelector(".multiply");
+    multiplyButton.addEventListener('click', event => {
+        const string = event.target.textContent;
+        displayExpr(string);
+    });
+    const divideButton = document.querySelector(".divide");
+    divideButton.addEventListener('click', event => {
+        const string = event.target.textContent;
+        displayExpr(string);
+    });
+}
+
 function init(){
     addEventListenerToNum();
+    addEventListenerToOperators();
 }
 
 init();
