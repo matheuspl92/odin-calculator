@@ -13,10 +13,18 @@ function multiply(a, b){return Number(a) * Number(b);}
 function divide(a, b){return Number(a) / Number(b);}
 
 function operate(operator, a, b){
-    if(operator === "+"){return add(a, b);}
-    if(operator === "-"){return subtract(a, b);}
-    if(operator === "*"){return multiply(a, b);}
-    if(operator === "/"){return divide(a, b);}
+    if(operator === "+"){
+        return add(a, b);
+    }
+    if(operator === "-"){
+        return subtract(a, b);
+    }
+    if(operator === "*"){
+        return multiply(a, b);
+    }
+    if(operator === "/"){
+        return divide(a, b);
+    }
 }
 
 function displayExpr(string = ""){
@@ -27,6 +35,15 @@ function displayExpr(string = ""){
         display.textContent += string;
     }
     displayExprValue = display.textContent;
+}
+
+function displayResult(string = ""){
+    const display = document.querySelector('.result-display');
+    if(string === ""){
+        display.textContent = "";
+    } else {
+        display.textContent = string;
+    }
 }
 
 function addEventListenerToNum(){
