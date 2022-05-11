@@ -55,6 +55,18 @@ function addEventListenerToEqual(){
     });
 }
 
+function addEventListenerToAC(){
+    const acButton = document.querySelector(".AC");
+    acButton.addEventListener('click', () => {
+        displayExpr();
+        displayResult();
+        clearValueString();
+        firstNum = null;
+        secondNum = null;
+        selectedOperator = "";
+    });
+}
+
 function addEventListenerToNum(){
     const numButton = Array.from(document.querySelectorAll(".num"));
     numButton.forEach(btn => btn.addEventListener('click', event => {
@@ -135,6 +147,7 @@ function init(){
     addEventListenerToNum();
     addEventListenerToOperators();
     addEventListenerToEqual();
+    addEventListenerToAC();
 }
 
 init();
