@@ -19,7 +19,11 @@ function operate(operator, a, b){
     if(operator === "×"){firstNum = multiply(a, b);}
     if(operator === "÷"){firstNum = divide(a, b);}
     secondNum = null;
-    displayResult(Math.round(firstNum * 10000)/10000);
+    if(firstNum !== Infinity){
+        displayResult(Math.round(firstNum * 10000)/10000);
+    } else {
+        displayResult("To infinity and beyond!");
+    }
     console.log(`RESULT = ${firstNum}`);
 }
 
