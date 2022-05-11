@@ -43,8 +43,8 @@ function displayResult(string = ""){
 }
 
 function addEventListenerToEqual(){
-    const equalButton = document.querySelectorAll(".equal");
-    equalButton.addEventListener('click', event => {
+    const equalButton = document.querySelector(".equal");
+    equalButton.addEventListener('click', () => {
         if(valueString !== "" && firstNum !== null && secondNum === null){
             pushValueToSecondNum();
             operate(selectedOperator, firstNum, secondNum);
@@ -80,6 +80,13 @@ function addEventListenerToOperators(){
 
 function operatorButtonFunction(event){
 
+    if(valueString == "" && firstNum !== null && secondNum === null){
+        const string = event.target.textContent;
+        selectedOperator = string;
+        displayExpr();
+        displayExpr(`Ans${string}`);
+    }
+
     if(valueString !== "" && firstNum === null){
         pushValueToFirstNum();
         const string = event.target.textContent;
@@ -94,7 +101,6 @@ function operatorButtonFunction(event){
         selectedOperator = string;
         displayExpr();
         displayExpr(`Ans${string}`);
-
     }
     
 }
@@ -128,6 +134,7 @@ function pushValueToSecondNum(){
 function init(){
     addEventListenerToNum();
     addEventListenerToOperators();
+    addEventListenerToEqual();
 }
 
 init();
