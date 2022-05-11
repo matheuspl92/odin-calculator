@@ -53,12 +53,22 @@ function addEventListenerToOperators(){
 }
 
 function operatorButtonFunction(event){
-    pushValueToFirstNum();
-    if(firstNum != null){
+
+    if(valueString !== "" && firstNum === null){
+        pushValueToFirstNum();
         const string = event.target.textContent;
         displayExpr(string);
         clearValueString();
     }
+    
+    /**if(firstNum === null){
+        pushValueToFirstNum();
+    }
+    if(firstNum != null){
+        const string = event.target.textContent;
+        displayExpr(string);
+        clearValueString();
+    }**/
 }
 
 function addToValueString(string){
