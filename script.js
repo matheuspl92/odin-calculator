@@ -1,3 +1,6 @@
+// Global variables
+let displayExprValue = "";
+
 function add(a, b){return Number(a) + Number(b);}
 
 function subtract(a, b){return Number(a) - Number(b);}
@@ -20,6 +23,7 @@ function displayExpr(string = ""){
     } else {
         display.textContent += string;
     }
+    displayExprValue = display.textContent;
 }
 
 function addEventListenerToNum(){
