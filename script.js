@@ -19,7 +19,7 @@ function operate(operator, a, b){
     if(operator === "×"){firstNum = multiply(a, b);}
     if(operator === "÷"){firstNum = divide(a, b);}
     secondNum = null;
-    displayResult(firstNum);
+    displayResult(Math.round(firstNum * 10000)/10000);
     console.log(`RESULT = ${firstNum}`);
 }
 
