@@ -31,5 +31,7 @@ function addEventListenerToNum(){
 }
 
 function init(){
-
+    addEventListenerToNum();
 }
+
+init();
