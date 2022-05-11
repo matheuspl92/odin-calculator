@@ -71,6 +71,16 @@ function addEventListenerToAC(){
     });
 }
 
+function addEventListenerToDot(){
+    const dotButton = document.querySelector(".dot");
+    dotButton.addEventListener('click', () => {
+        if(!valueString.includes(".")){
+            displayExpr(".");
+            addToValueString(".");
+        }
+    });
+}
+
 function addEventListenerToNum(){
     const numButton = Array.from(document.querySelectorAll(".num"));
     numButton.forEach(btn => btn.addEventListener('click', event => {
@@ -152,6 +162,7 @@ function init(){
     addEventListenerToOperators();
     addEventListenerToEqual();
     addEventListenerToAC();
+    addEventListenerToDot();
 }
 
 init();
