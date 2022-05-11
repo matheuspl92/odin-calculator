@@ -65,7 +65,7 @@ button {
     font-size: 30px;
 }
 
-.zero {
+#zero {
     grid-column: 1 / 3;
 }
 
