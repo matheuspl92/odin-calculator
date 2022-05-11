@@ -1,5 +1,7 @@
 // Global variables
 let displayExprValue = "";
+let firstNum = null;
+let secondNum = null;
 
 function add(a, b){return Number(a) + Number(b);}
 
