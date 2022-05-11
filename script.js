@@ -58,17 +58,17 @@ function operatorButtonFunction(event){
         pushValueToFirstNum();
         const string = event.target.textContent;
         displayExpr(string);
-        clearValueString();
+    }
+
+    if(valueString !== "" && firstNum !== null && secondNum === null){
+        pushValueToSecondNum();
+        const string = event.target.textContent;
+        console.log(`RESULT = ${operate(string, firstNum, secondNum)}`);
+        displayExpr();
+        displayExpr(`Ans${string}`);
+
     }
     
-    /**if(firstNum === null){
-        pushValueToFirstNum();
-    }
-    if(firstNum != null){
-        const string = event.target.textContent;
-        displayExpr(string);
-        clearValueString();
-    }**/
 }
 
 function addToValueString(string){
@@ -84,7 +84,16 @@ function clearValueString(){
 function pushValueToFirstNum(){
     if(valueString != ""){
         firstNum = Number(valueString);
+        clearValueString();
         console.log(`firstNumber = ${firstNum}`);
+    }
+}
+
+function pushValueToSecondNum(){
+    if(valueString != ""){
+        secondNum = Number(valueString);
+        clearValueString();
+        console.log(`secondNumber = ${secondNum}`);
     }
 }
 
