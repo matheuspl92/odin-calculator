@@ -1,30 +1,26 @@
 // Global variables
 let displayExprValue = "";
 let valueString = "";
+let selectedOperator = "";
 let firstNum = null;
 let secondNum = null;
 
-function add(a, b){return Number(a) + Number(b);}
+function add(a, b){return (Number(a) + Number(b));}
 
-function subtract(a, b){return Number(a) - Number(b);}
+function subtract(a, b){return (Number(a) - Number(b));}
 
-function multiply(a, b){return Number(a) * Number(b);}
+function multiply(a, b){return (Number(a) * Number(b));}
 
-function divide(a, b){return Number(a) / Number(b);}
+function divide(a, b){return (Number(a) / Number(b));}
 
 function operate(operator, a, b){
-    if(operator === "+"){
-        return add(a, b);
-    }
-    if(operator === "-"){
-        return subtract(a, b);
-    }
-    if(operator === "*"){
-        return multiply(a, b);
-    }
-    if(operator === "/"){
-        return divide(a, b);
-    }
+    if(operator === "+"){firstNum = add(a, b);}
+    if(operator === "-"){firstNum = subtract(a, b);}
+    if(operator === "×"){firstNum = multiply(a, b);}
+    if(operator === "÷"){firstNum = divide(a, b);}
+    secondNum = null;
+    displayResult(firstNum);
+    console.log(`RESULT = ${firstNum}`);
 }
 
 function displayExpr(string = ""){
@@ -74,13 +70,15 @@ function operatorButtonFunction(event){
     if(valueString !== "" && firstNum === null){
         pushValueToFirstNum();
         const string = event.target.textContent;
+        selectedOperator = string;
         displayExpr(string);
     }
 
     if(valueString !== "" && firstNum !== null && secondNum === null){
         pushValueToSecondNum();
         const string = event.target.textContent;
-        console.log(`RESULT = ${operate(string, firstNum, secondNum)}`);
+        operate(selectedOperator, firstNum, secondNum);
+        selectedOperator = string;
         displayExpr();
         displayExpr(`Ans${string}`);
 
