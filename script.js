@@ -37,6 +37,11 @@ function displayExpr(string = ""){
     displayExprValue = display.textContent;
 }
 
+function deleteDisplayExpr(){
+    const display = document.querySelector('.expr-display');
+    display.textContent = display.textContent.slice(0, -1);
+}
+
 function displayResult(string = ""){
     const display = document.querySelector('.result-display');
     if(string === ""){
@@ -77,6 +82,16 @@ function addEventListenerToDot(){
         if(!valueString.includes(".")){
             displayExpr(".");
             addToValueString(".");
+        }
+    });
+}
+
+function addEventListenerToDEL(){
+    const delButton = document.querySelector(".DEL");
+    delButton.addEventListener('click', () => {
+        if(valueString){
+            valueString = valueString.slice(0, -1);
+            deleteDisplayExpr();
         }
     });
 }
@@ -163,6 +178,7 @@ function init(){
     addEventListenerToEqual();
     addEventListenerToAC();
     addEventListenerToDot();
+    addEventListenerToDEL();
 }
 
 init();

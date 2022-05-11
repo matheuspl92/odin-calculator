@@ -50,7 +50,7 @@ divide
 
 # DONE. EXTRA CREDIT: Make it look nice! This is a great project to practice your CSS skills. At least make the operations a different color from the keypad buttons.
 
-EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the wrong number.
+# DONE. EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the wrong number.
 
 EXTRA CREDIT: Add keyboard support!
 
