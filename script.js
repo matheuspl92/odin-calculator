@@ -12,3 +12,12 @@ function operate(operator, a, b){
     if(operator === "*"){return multiply(a, b);}
     if(operator === "/"){return divide(a, b);}
 }
+
+function displayExpr(string = ""){
+    const display = document.querySelector('.expr-display');
+    if(string === ""){
+        display.textContent = "";
+    } else {
+        display.textContent += string;
+    }
+}
