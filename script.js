@@ -21,3 +21,15 @@ function displayExpr(string = ""){
         display.textContent += string;
     }
 }
+
+function addEventListenerToNum(){
+    const numButton = Array.from(document.querySelectorAll(".num"));
+    numButton.forEach(btn => btn.addEventListener('click', event => {
+        const string = event.target.textContent;
+        displayExpr(string);
+    }));
+}
+
+function init(){
+
+}
