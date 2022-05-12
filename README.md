@@ -1,5 +1,17 @@
 # odin-calculator
 
+A basic virtual calculator with keyboard support. Try to divide by zero!
+
+Skills demonstrated:
+
+- Basic HTML skills;
+- Basic CSS skills;
+- Basic Javascript skills;
+- Basic Git and GitHub skills;
+- Good commit history;
+- Problem solving skills;
+- Debugging skills.
+
 ###########################
 ASSIGNMENT:
 
